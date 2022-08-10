@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest --verbose --runInBand --testLocationInResults --passWithNoTests",
-    "test:watch": "env-cmd -f ./tests/.env npm run test -- --watch",
+    "test:watch": "env-cmd -f ./__tests__/.env npm run test -- --watch",
     "start": "env-cmd node server.js",
     "start:watch": "env-cmd nodemon -i ./tests server.js",
     "create-dbs": "env-cmd createdb && env-cmd -f ./tests/.env createdb",

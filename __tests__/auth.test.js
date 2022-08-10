@@ -1,4 +1,4 @@
-const { setupDb, signUpUser } = require('./utils.js');
+const { setupDb, signUpUser } = require('../utils.js');
 const request = require('supertest');
 const app = require('../lib/app');
 

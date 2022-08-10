@@ -1,5 +1,5 @@
 const request = require('supertest');
-const { setupDb, signUpUser } = require('./utils.js');
+const { setupDb, signUpUser } = require('../utils.js');
 const app = require('../lib/app');
 
 describe('/api/v1/items', () => {
