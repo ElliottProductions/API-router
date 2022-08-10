@@ -6,6 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "lint": "eslint .",
+    "test": "env-cmd -f ./tests/.env jest --verbose --runInBand --testLocationInResults --passWithNoTests",
+    "test:watch": "npm run test -- --watch",
     "start": "env-cmd node server.js",
     "start:watch": "env-cmd nodemon -i ./tests server.js",
     "create-dbs": "env-cmd createdb && env-cmd -f ./tests/.env createdb",
