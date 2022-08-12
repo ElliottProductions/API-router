@@ -6,16 +6,13 @@
   "type": "commonjs",
   "scripts": {
     "lint": "eslint .",
-    "test": "jest --verbose --runInBand --testLocationInResults --passWithNoTests",
-    "test:watch": "env-cmd -f ./__tests__/.env npm run test -- --watch",
+    "test": "env-cmd --silent -f ./__tests__/.env jest --runInBand --testLocationInResults",
+    "test:watch": "npm run test -- --watch",
     "start": "env-cmd node server.js",
     "start:watch": "env-cmd nodemon -i ./tests server.js",
     "create-dbs": "env-cmd createdb && env-cmd -f ./tests/.env createdb",
-    "setup-db": "psql -f ./sql/setup.sql",
-    "setup-db:dev": "env-cmd psql -f ./sql/setup.sql",
-    "setup-db:heroku": "heroku pg:psql -f ./sql/setup.sql",
-    "create-db:test": "env-cmd -f ./tests/.env createdb"
-
+    "setup-db": "env-cmd node ./sql/setup.js",
+    "setup-db:heroku": "heroku run npm run setup-db"
   },
   "jest": {
     "testEnvironment": "node"
@@ -39,11 +36,11 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "sequelize": "^6.21.3"
   }
 }
